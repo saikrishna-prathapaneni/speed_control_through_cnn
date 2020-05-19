@@ -2,7 +2,9 @@
 %labels = readtable('labels.csv');
 clc;
 file=fullfile('mydata');
-cat={'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25'};
+cat={'0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'...
+    ,'16','17','18','19','20','21','22','23','24','25','26','27','28'...
+    '29','30','31','32','33','34','35','36','37','38','39','40','41','42'};
 
 %labels = readtable('labels.csv');
 data_set=imageDatastore(fullfile(file,cat),'LabelSource','foldernames');
@@ -84,18 +86,18 @@ mean(diag(k))
 
 %test the other data_set for the classification
 
-% img = imread(fullfile('test_data_4.jpg'));
-% 
-% test=augmentedImageDatastore(inputsize_of_cnn,img,'ColorPreprocessing','gray2rgb');
-% testk=activations(net,test...
-%     ,featurelayer,'MiniBatchSize',32,'OutputAs','columns');     
-% testk=transpose(testk);
-% label=predict(classifier,testk);
+img = imread(fullfile('test_data_4.jpg'));
+ 
+ test=augmentedImageDatastore(inputsize_of_cnn,img,'ColorPreprocessing','gray2rgb');
+ testk=activations(net,test...
+     ,featurelayer,'MiniBatchSize',32,'OutputAs','columns');     
+ testk=transpose(testk);
+ label=predict(classifier,testk);
+ label
+ k=int16(label)
+ k=k+6.5;
+ k=int16(k)
+labels.(2)(k)
+
 % fprintf('label is %s',label);
 
-
-
-
-
-
-				
