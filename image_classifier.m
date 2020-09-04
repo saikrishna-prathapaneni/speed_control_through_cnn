@@ -126,7 +126,7 @@ classifier=fitcecoc(training_features,traininglables...
 
 %time for the prediction(how well the data model is performed over the test data)
 test_features=activations(net,augumented_test_data...
-    ,featurelayer,'MiniBatchSize',32,'OutputAs','columns');     
+    ,featurelayer,'MiniBatchSize',32,'OutputAs','columns', 'Plots','training-progress');     
 test_features=transpose(test_features);
 %%
 predict_labels=predict(classifier,test_features);    
